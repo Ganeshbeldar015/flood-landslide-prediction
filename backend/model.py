@@ -3,21 +3,15 @@ from sklearn.ensemble import RandomForestClassifier
 import pickle
 
 data = pd.read_csv("dataset.csv")
-
 X = data.drop(["flood", "landslide"], axis=1)
-y_flood = data["flood"]
-y_landslide = data["landslide"]
 
 flood_model = RandomForestClassifier()
 landslide_model = RandomForestClassifier()
 
-flood_model.fit(X, y_flood)
-landslide_model.fit(X, y_landslide)
+flood_model.fit(X, data["flood"])
+landslide_model.fit(X, data["landslide"])
 
-with open("flood_model.pkl", "wb") as f:
-    pickle.dump(flood_model, f)
-
-with open("landslide_model.pkl", "wb") as f:
-    pickle.dump(landslide_model, f)
+pickle.dump(flood_model, open("flood_model.pkl", "wb"))
+pickle.dump(landslide_model, open("landslide_model.pkl", "wb"))
 
 print("Models trained successfully")
