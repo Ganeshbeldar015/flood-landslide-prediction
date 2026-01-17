@@ -10,6 +10,8 @@ import {
   Loader2
 } from "lucide-react";
 import ResultCard from "./ResultCard";
+import { saveHistory } from "../utils/historyStorage";
+
 
 export default function PredictionForm() {
   // Initial state helper
@@ -47,6 +49,13 @@ export default function PredictionForm() {
       );
 
       setResult(res.data);
+      saveHistory({
+        city: res.data.city,
+        flood: res.data.flood_risk,
+        landslide: res.data.landslide_risk,
+        date: new Date().toLocaleString()
+      });
+
 
       // Reset form after successful prediction
       setFormData(initialState);
@@ -60,7 +69,7 @@ export default function PredictionForm() {
 
   return (
     <div className="w-full bg-[#1e293b] rounded-[2.5rem] shadow-2xl border border-slate-700/40 p-10 transition-all">
-      
+
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-3xl font-black text-white italic tracking-tighter">
@@ -73,7 +82,7 @@ export default function PredictionForm() {
 
       {/* Inputs */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mb-10">
-        
+
         <Field
           label="Target City"
           desc="Primary location"
