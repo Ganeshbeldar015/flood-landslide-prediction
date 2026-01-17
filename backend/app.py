@@ -34,6 +34,7 @@ def get_weather(city):
         "lon": data["coord"]["lon"]
     }
 
+
 @app.route("/")
 def home():
     return {"message": "Flood & Landslide Prediction API running"}
