@@ -70,35 +70,9 @@ The system also provides **emergency response information** and maintains a **hi
 - Random Forest Classifier
 - Trained on historical flood & landslide data
 
----
-
-## 📂 Project Structure
-Flood-and-Landslide-Prediction/
-│
-├── backend/
-│ ├── app.py
-│ ├── model.py
-│ ├── dataset.csv
-│ ├── requirements.txt
-│ └── .env
-│
-├── frontend/
-│ ├── public/
-│ │ └── favicon.svg
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── data/
-│ │ ├── utils/
-│ │ ├── App.jsx
-│ │ └── main.jsx
-│ ├── index.html
-│ └── .env
-│
-└── README.md
 
 
----
+
 
 ## ⚙️ Installation & Setup
 
