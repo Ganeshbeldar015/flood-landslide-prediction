@@ -16,8 +16,9 @@ app = Flask(__name__)
 CORS(app)
 
 # Load models
-flood_model = pickle.load(open("flood_model.pkl", "rb"))
-landslide_model = pickle.load(open("landslide_model.pkl", "rb"))
+model_path = os.path.dirname(__file__)
+flood_model = pickle.load(open(os.path.join(model_path, "flood_model.pkl"), "rb"))
+landslide_model = pickle.load(open(os.path.join(model_path, "landslide_model.pkl"), "rb"))
 
 def get_weather(city):
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
