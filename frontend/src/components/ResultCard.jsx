@@ -3,7 +3,12 @@ import {
   CheckCircle,
   CloudRain,
   Droplets,
-  MapPin
+  MapPin,
+  Waves,
+  Mountain,
+  Leaf,
+  History,
+  Info
 } from "lucide-react";
 import MapView from "./MapView";
 
@@ -51,7 +56,7 @@ export default function ResultCard({ result }) {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
         <StatCard
           icon={<MapPin className="text-emerald-400" />}
           label="Target"
@@ -67,6 +72,46 @@ export default function ResultCard({ result }) {
           label="Humidity"
           value={`${result.humidity_percent}%`}
         />
+        <StatCard
+          icon={<Waves className="text-blue-500" />}
+          label="River Level"
+          value={`${result.river_level} m`}
+        />
+        <StatCard
+          icon={<Mountain className="text-orange-400" />}
+          label="Slope Angle"
+          value={`${result.slope}°`}
+        />
+        <StatCard
+          icon={<Leaf className="text-green-400" />}
+          label="Vegetation"
+          value={result.vegetation}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <StatCard
+          icon={<History className="text-purple-400" />}
+          label="Past Events"
+          value={result.past_events}
+        />
+        
+        {/* Analysis Overview */}
+        <div className="bg-[#0f172a] p-5 rounded-2xl border border-slate-700/50 flex items-start gap-4">
+          <div className="p-3 bg-slate-800 rounded-xl mt-1">
+            <Info className="text-white" size={20} />
+          </div>
+          <div>
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter mb-1">
+              Data Analysis
+            </p>
+            <p className="text-xs text-slate-300 leading-relaxed font-medium">
+              Geographical features are synthetically modeled for <strong>{result.city}</strong>. 
+              {result.river_level > 8 ? " High river levels" : " Moderate river levels"} coupled with 
+              {result.slope > 25 ? " steep slopes" : " mild terrain"} heavily influence the risk computations below.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Risk Meters */}

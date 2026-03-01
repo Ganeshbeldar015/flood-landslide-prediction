@@ -16,11 +16,7 @@ import { saveHistory } from "../utils/historyStorage";
 export default function PredictionForm() {
   // Initial state helper
   const initialState = {
-    city: "",
-    river_level: "",
-    slope: "",
-    vegetation: "",
-    past_events: ""
+    city: ""
   };
 
   const [formData, setFormData] = useState(initialState);
@@ -81,8 +77,7 @@ export default function PredictionForm() {
       </div>
 
       {/* Inputs */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mb-10">
-
+      <div className="mb-10 w-full max-w-md mx-auto">
         <Field
           label="Target City"
           desc="Primary location"
@@ -92,67 +87,6 @@ export default function PredictionForm() {
             name="city"
             value={formData.city}
             placeholder="e.g. Mumbai"
-            className="dark-input w-full"
-            onChange={handleChange}
-          />
-        </Field>
-
-        <Field
-          label="River Level"
-          desc="Meters (0.00)"
-          icon={<Waves size={16} className="text-cyan-400" />}
-        >
-          <input
-            name="river_level"
-            value={formData.river_level}
-            type="number"
-            placeholder="4.2"
-            className="dark-input w-full"
-            onChange={handleChange}
-          />
-        </Field>
-
-        <Field
-          label="Slope Angle"
-          desc="Degrees (0–90)"
-          icon={<Mountain size={16} className="text-orange-400" />}
-        >
-          <input
-            name="slope"
-            value={formData.slope}
-            type="number"
-            placeholder="25"
-            className="dark-input w-full"
-            onChange={handleChange}
-          />
-        </Field>
-
-        <Field
-          label="Vegetation"
-          desc="NDVI Index"
-          icon={<Leaf size={16} className="text-emerald-400" />}
-        >
-          <input
-            name="vegetation"
-            value={formData.vegetation}
-            step="0.01"
-            type="number"
-            placeholder="0.65"
-            className="dark-input w-full"
-            onChange={handleChange}
-          />
-        </Field>
-
-        <Field
-          label="Past Events"
-          desc="Historical count"
-          icon={<History size={16} className="text-purple-400" />}
-        >
-          <input
-            name="past_events"
-            value={formData.past_events}
-            type="number"
-            placeholder="2"
             className="dark-input w-full"
             onChange={handleChange}
           />
