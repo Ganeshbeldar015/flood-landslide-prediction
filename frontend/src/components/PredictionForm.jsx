@@ -39,8 +39,9 @@ export default function PredictionForm() {
     setResult(null);
 
     try {
+      const API_URL = import.meta.env.VITE_API_URL || "/api";
       const res = await axios.post(
-        "/api/predict",
+        `${API_URL}/predict`,
         formData
       );
 
