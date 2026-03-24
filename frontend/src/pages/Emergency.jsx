@@ -14,41 +14,41 @@ export default function Emergency() {
   const data = emergencyData[city];
 
   return (
-    <div className="w-full bg-[#1e293b] rounded-[2.5rem] shadow-2xl border border-slate-700/40 p-10 text-white">
+    <div className="w-full bg-[#2D2C2A] rounded-[2rem] shadow-xl border border-[#3E3D3B]/50 p-10 text-[#F0EFEA]">
 
       {/* ================= HEADER ================= */}
       <div className="text-center mb-12">
         <div className="flex justify-center items-center gap-3 mb-3">
-          <AlertTriangle className="text-red-400 animate-pulse" size={28} />
-          <h2 className="text-3xl md:text-4xl font-black italic tracking-tight">
+          <AlertTriangle className="text-[#D96B58] animate-pulse" size={28} />
+          <h2 className="text-4xl md:text-5xl font-serif tracking-tight text-[#F0EFEA]">
             Emergency Response
           </h2>
         </div>
-        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.4em]">
+        <p className="text-[#A09E99] text-xs font-medium uppercase tracking-widest">
           Immediate help & critical contacts
         </p>
       </div>
 
       {/* ================= CITY SELECTOR ================= */}
       <div className="flex justify-center mb-14">
-        <div className="bg-slate-900 border border-slate-700 rounded-3xl px-8 py-6
-                        flex items-center gap-5 shadow-xl">
+        <div className="bg-[#1A1A19] border border-[#3E3D3B]/50 rounded-2xl px-8 py-6
+                        flex items-center gap-5 shadow-lg">
 
-          <div className="p-3 bg-emerald-500/10 rounded-2xl">
-            <MapPin className="text-emerald-400" size={20} />
+          <div className="p-3 bg-[#A3B18A]/10 rounded-xl">
+            <MapPin className="text-[#A3B18A]" size={20} />
           </div>
 
           <div className="flex flex-col">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+            <span className="text-[10px] text-[#A09E99] font-medium uppercase tracking-widest">
               Selected City
             </span>
             <select
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className="bg-transparent outline-none text-white text-lg font-black cursor-pointer"
+              className="bg-transparent outline-none text-[#F0EFEA] text-lg font-medium cursor-pointer"
             >
               {Object.keys(emergencyData).map((c) => (
-                <option key={c} className="bg-slate-900">
+                <option key={c} className="bg-[#2D2C2A]">
                   {c}
                 </option>
               ))}
@@ -64,39 +64,39 @@ export default function Emergency() {
         <EmergencyCard
           label="Police"
           number={data.police}
-          icon={<ShieldAlert className="text-blue-400" />}
+          icon={<ShieldAlert className="text-[#4F759B]" />}
         />
 
         <EmergencyCard
           label="Ambulance"
           number={data.ambulance}
-          icon={<Ambulance className="text-emerald-400" />}
+          icon={<Ambulance className="text-[#A3B18A]" />}
         />
 
         <EmergencyCard
           label="Fire Brigade"
           number={data.fire}
-          icon={<Flame className="text-orange-400" />}
+          icon={<Flame className="text-[#D9AC6B]" />}
         />
 
         <EmergencyCard
           label="Disaster Helpline"
           number={data.disaster}
-          icon={<PhoneCall className="text-purple-400" />}
+          icon={<PhoneCall className="text-[#B292A5]" />}
         />
 
         <EmergencyCard
           label="Flood Control Room"
           number={data.flood}
-          icon={<AlertTriangle className="text-red-400" />}
+          icon={<AlertTriangle className="text-[#D96B58]" />}
           danger
         />
       </div>
 
       {/* ================= SAFETY NOTE ================= */}
       <div className="flex items-center justify-center gap-3
-                      bg-red-500/10 border border-red-500/30
-                      rounded-2xl px-6 py-4 text-red-400 text-xs font-bold">
+                      bg-[#D96B58]/10 border border-[#D96B58]/30
+                      rounded-xl px-6 py-4 text-[#D96B58] text-xs font-medium">
         <AlertTriangle size={14} />
         Call emergency services immediately if risk is high
       </div>
@@ -110,31 +110,31 @@ function EmergencyCard({ label, number, icon, danger }) {
   return (
     <a
       href={`tel:${number}`}
-      className={`relative group rounded-3xl p-6
-                  bg-slate-900 border transition-all
-                  hover:scale-[1.03] hover:shadow-xl
+      className={`relative group rounded-2xl p-6
+                  bg-[#1A1A19] border transition-all
+                  hover:-translate-y-1 hover:shadow-lg
         ${danger
-          ? "border-red-500/40 hover:bg-red-500/10"
-          : "border-slate-700 hover:border-emerald-500/40 hover:bg-slate-800"}`}
+          ? "border-[#D96B58]/40 hover:bg-[#D96B58]/10"
+          : "border-[#3E3D3B]/50 hover:border-[#A3B18A]/40 hover:bg-[#2D2C2A]"}`}
     >
       <div className="flex justify-between items-start mb-6">
         <div>
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+          <p className="text-[10px] text-[#A09E99] font-medium uppercase tracking-wider">
             {label}
           </p>
-          <p className={`text-2xl font-black mt-1 ${danger ? "text-red-400" : ""}`}>
+          <p className={`text-2xl font-medium mt-1 ${danger ? "text-[#D96B58]" : "text-[#F0EFEA]"}`}>
             {number}
           </p>
         </div>
 
-        <div className={`p-3 rounded-2xl
-          ${danger ? "bg-red-500/20" : "bg-emerald-500/10"}`}>
+        <div className={`p-3 rounded-xl
+          ${danger ? "bg-[#D96B58]/10" : "bg-[#A3B18A]/10"}`}>
           {icon}
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 h-[3px]
-                      bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent
+      <div className="absolute inset-x-0 bottom-0 h-[2px]
+                      bg-gradient-to-r from-transparent via-[#A3B18A]/30 to-transparent
                       opacity-0 group-hover:opacity-100 transition" />
     </a>
   );

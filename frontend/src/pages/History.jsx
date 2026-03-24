@@ -16,18 +16,18 @@ export default function History() {
   };
 
   return (
-    <div className="w-full bg-[#1e293b] rounded-[2.5rem] shadow-2xl
-                    border border-slate-700/40 p-10 text-white">
+    <div className="w-full bg-[#2D2C2A] rounded-[2rem] shadow-xl
+                    border border-[#3E3D3B]/50 p-10 text-[#F0EFEA]">
 
       {/* Header */}
       <div className="text-center mb-12">
         <div className="flex justify-center items-center gap-3 mb-3">
-          <HistoryIcon className="text-emerald-400" size={26} />
-          <h2 className="text-3xl font-black italic tracking-tight">
+          <HistoryIcon className="text-[#A3B18A]" size={26} />
+          <h2 className="text-4xl font-serif tracking-tight text-[#F0EFEA]">
             Prediction History
           </h2>
         </div>
-        <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.4em]">
+        <p className="text-[#A09E99] text-xs font-medium uppercase tracking-widest">
           Previously generated risk assessments
         </p>
       </div>
@@ -37,9 +37,9 @@ export default function History() {
         <div className="flex justify-end mb-6">
           <button
             onClick={clearAll}
-            className="flex items-center gap-2 text-xs font-bold
-                       bg-red-500/10 border border-red-500/30
-                       text-red-400 px-4 py-2 rounded-xl hover:bg-red-500/20"
+            className="flex items-center gap-2 text-xs font-medium
+                       bg-[#D96B58]/10 border border-[#D96B58]/30
+                       text-[#D96B58] px-4 py-2 rounded-lg hover:bg-[#D96B58]/20 transition-colors"
           >
             <Trash2 size={14} />
             Clear History
@@ -49,7 +49,7 @@ export default function History() {
 
       {/* Content */}
       {records.length === 0 ? (
-        <div className="text-center text-slate-500 text-sm py-20">
+        <div className="text-center text-[#A09E99] text-sm py-20 font-medium tracking-wide">
           No prediction history available.
         </div>
       ) : (

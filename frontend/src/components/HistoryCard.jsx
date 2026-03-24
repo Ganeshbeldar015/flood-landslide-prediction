@@ -5,10 +5,10 @@ export default function HistoryCard({ item }) {
     const high = value === "High";
     return (
       <div
-        className={`flex items-center gap-2 px-3 py-1 rounded-xl text-xs font-bold
+        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-[11px] font-medium tracking-wide uppercase
           ${high
-            ? "bg-red-500/10 text-red-400"
-            : "bg-emerald-500/10 text-emerald-400"}`}
+            ? "bg-[#D96B58]/10 text-[#D96B58]"
+            : "bg-[#A3B18A]/10 text-[#A3B18A]"}`}
       >
         {high ? <AlertTriangle size={14} /> : <CheckCircle size={14} />}
         {label}: {value}
@@ -17,16 +17,16 @@ export default function HistoryCard({ item }) {
   };
 
   return (
-    <div className="bg-[#0f172a] border border-slate-700 rounded-2xl p-6
-                    hover:border-emerald-500/40 transition">
+    <div className="bg-[#1A1A19] border border-[#3E3D3B]/50 rounded-xl p-6
+                    hover:border-[#A3B18A]/40 transition-all hover:-translate-y-1 hover:shadow-lg">
 
-      <div className="flex justify-between items-start mb-4">
+      <div className="flex justify-between items-start mb-5">
         <div>
-          <div className="flex items-center gap-2 text-white font-black text-lg">
-            <MapPin size={16} className="text-emerald-400" />
+          <div className="flex items-center gap-2 text-[#F0EFEA] font-serif text-xl tracking-wide">
+            <MapPin size={16} className="text-[#A3B18A]" />
             {item.city}
           </div>
-          <div className="flex items-center gap-2 text-slate-500 text-xs mt-1">
+          <div className="flex items-center gap-2 text-[#A09E99] font-medium text-xs mt-1.5">
             <Calendar size={12} />
             {item.date}
           </div>

@@ -7,21 +7,30 @@
 
 @layer components {
   .modern-input {
-    @apply w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl 
-           outline-none transition-all duration-200
-           focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10
-           placeholder:text-slate-300 text-slate-700 font-medium;
+    @apply w-full px-4 py-3 bg-[#E8E6E1] border border-[#D6D3CC] rounded-xl 
+           outline-none transition-all duration-200 text-[#2D2C2A]
+           focus:bg-[#F0EFEA] focus:border-[#D96B58] focus:ring-4 focus:ring-[#D96B58]/10
+           placeholder:text-[#A09E99] font-medium font-sans;
   }
-}
-@layer components {
+
   .dark-input {
-    @apply w-full px-4 py-3 bg-[#1e293b] border border-slate-600 rounded-xl 
-           outline-none transition-all duration-300
-           focus:bg-[#1e293b] focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10
-           placeholder:text-slate-500 text-white font-medium shadow-sm;
+    @apply w-full px-4 py-3 bg-[#2D2C2A] border border-[#3E3D3B] rounded-xl 
+           outline-none transition-all duration-300 text-[#F0EFEA] hover:border-[#504F4C]
+           focus:bg-[#232220] focus:border-[#D96B58] focus:ring-2 focus:ring-[#D96B58]/20
+           placeholder:text-[#8A8885] font-medium font-sans shadow-sm;
   }
 }
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', sans-serif;
+  background-color: #232220;
+  color: #F0EFEA;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+.font-sans {
+  font-family: 'Inter', sans-serif;
 }

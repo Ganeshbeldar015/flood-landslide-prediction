@@ -16,7 +16,7 @@ import { saveHistory } from "../utils/historyStorage";
 export default function PredictionForm() {
   // Initial state helper
   const initialState = {
-    city: ""
+    city: "",
   };
 
   const [formData, setFormData] = useState(initialState);
@@ -30,7 +30,7 @@ export default function PredictionForm() {
 
   const handleSubmit = async () => {
     if (!formData.city) {
-      setError("Please enter a target city.");
+      setError("Please enter a target city to fetch live weather and geographical data.");
       return;
     }
 
@@ -64,24 +64,24 @@ export default function PredictionForm() {
   };
 
   return (
-    <div className="w-full bg-[#1e293b] rounded-[2.5rem] shadow-2xl border border-slate-700/40 p-10 transition-all">
+    <div className="w-full bg-[#2D2C2A] rounded-[2rem] shadow-xl border border-[#3E3D3B]/50 p-10 transition-all">
 
       {/* Header */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-black text-white italic tracking-tighter">
-          Prediction Engine
+        <h2 className="text-4xl font-serif text-[#F0EFEA] tracking-tight">
+          Risk Assessment
         </h2>
-        <p className="text-slate-500 mt-1 text-[10px] font-bold uppercase tracking-[0.4em]">
+        <p className="text-[#A09E99] mt-2 text-xs font-medium tracking-wide uppercase">
           Live Environmental Data Processing
         </p>
       </div>
 
       {/* Inputs */}
-      <div className="mb-10 w-full max-w-md mx-auto">
+      <div className="mb-10 w-full flex flex-col gap-6">
         <Field
           label="Target City"
-          desc="Primary location"
-          icon={<MapPin size={16} className="text-emerald-400" />}
+          desc="Fetches real-time weather & geographical data"
+          icon={<MapPin size={16} className="text-[#A3B18A]" />}
         >
           <input
             name="city"
@@ -97,21 +97,20 @@ export default function PredictionForm() {
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className="w-full flex justify-center items-center gap-4
-                   bg-emerald-500 hover:bg-emerald-400
-                   text-slate-950 py-4 rounded-2xl
-                   font-black text-lg shadow-2xl
-                   shadow-emerald-500/20 transition-all
-                   hover:scale-[1.01] active:scale-[0.98]
-                   disabled:opacity-50"
+        className="w-full flex justify-center items-center gap-3
+                   bg-[#D96B58] hover:bg-[#C55A48] text-[#F0EFEA] 
+                   py-4 rounded-xl font-medium text-base shadow-lg
+                   shadow-[#D96B58]/20 transition-all
+                   hover:-translate-y-0.5 active:translate-y-0
+                   disabled:opacity-50 disabled:hover:translate-y-0"
       >
         {loading ? <Loader2 className="animate-spin" /> : <Search size={20} />}
-        {loading ? "ANALYZING..." : "RUN RISK ANALYSIS"}
+        {loading ? "Analyzing Data..." : "Run Risk Analysis"}
       </button>
 
       {/* Error */}
       {error && (
-        <p className="text-red-400 text-xs mt-4 text-center font-bold">
+        <p className="text-[#D96B58] text-sm mt-4 text-center font-medium">
           {error}
         </p>
       )}
@@ -127,11 +126,11 @@ export default function PredictionForm() {
 function Field({ icon, label, desc, children }) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex justify-between items-center px-1">
-        <label className="text-[10px] font-black text-white uppercase tracking-wider flex items-center gap-2">
+      <div className="flex justify-between items-center px-1 mb-1">
+        <label className="text-xs font-medium text-[#F0EFEA] flex items-center gap-2">
           {icon} {label}
         </label>
-        <span className="text-[9px] text-slate-500 italic font-semibold">
+        <span className="text-[10px] text-[#A09E99]">
           {desc}
         </span>
       </div>
