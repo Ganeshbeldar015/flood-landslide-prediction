@@ -97,8 +97,8 @@ export default function ResultCard({ result }) {
         />
         
         {/* Analysis Overview */}
-        <div className="bg-[#1A1A19] p-5 rounded-xl border border-[#3E3D3B]/50 flex items-start gap-4">
-          <div className="p-3 bg-[#2D2C2A] rounded-xl mt-1">
+        <div className="bg-[#1A1A19] p-5 rounded-xl border border-[#3E3D3B]/50 flex flex-col sm:flex-row items-start gap-4">
+          <div className="p-3 bg-[#2D2C2A] rounded-xl sm:mt-1">
             <Info className="text-[#F0EFEA]" size={20} />
           </div>
           <div>
@@ -155,14 +155,14 @@ function RiskMeter({ title, risk, prob }) {
   const defaultWidth = risk === "High" ? "100%" : risk === "Medium" ? "66%" : "33%";
 
   return (
-    <div className={`p-8 rounded-2xl border ${cfg.border} ${cfg.bg}`}>
+    <div className={`p-6 sm:p-8 rounded-2xl border ${cfg.border} ${cfg.bg}`}>
       <div className="flex justify-between items-end mb-4">
         <div>
           <h4 className="text-[#A09E99] text-[10px] font-medium uppercase tracking-wider mb-1">
             {title}
           </h4>
-          <div className="flex items-baseline gap-3">
-             <p className={`text-4xl font-serif italic ${cfg.color}`}>{percent || risk}</p>
+          <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
+             <p className={`text-3xl sm:text-4xl font-serif italic ${cfg.color}`}>{percent || risk}</p>
              {percent && <p className={`text-sm font-medium tracking-wide uppercase opacity-80 ${cfg.color}`}>{risk} RISK</p>}
           </div>
         </div>

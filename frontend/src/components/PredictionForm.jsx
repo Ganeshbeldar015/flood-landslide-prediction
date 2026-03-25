@@ -65,11 +65,11 @@ export default function PredictionForm() {
   };
 
   return (
-    <div className="w-full bg-[#2D2C2A] rounded-[2rem] shadow-xl border border-[#3E3D3B]/50 p-10 transition-all">
+    <div className="w-full bg-[#2D2C2A] rounded-[2rem] shadow-xl border border-[#3E3D3B]/50 p-6 sm:p-10 transition-all">
 
       {/* Header */}
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-serif text-[#F0EFEA] tracking-tight">
+      <div className="text-center mb-8 sm:mb-10">
+        <h2 className="text-3xl sm:text-4xl font-serif text-[#F0EFEA] tracking-tight">
           Risk Assessment
         </h2>
         <p className="text-[#A09E99] mt-2 text-xs font-medium tracking-wide uppercase">

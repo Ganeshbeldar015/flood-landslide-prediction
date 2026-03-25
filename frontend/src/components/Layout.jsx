@@ -14,8 +14,8 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-[#232220] flex flex-col text-[#F0EFEA] font-sans">
       {/* Header */}
-      <header className="pt-8 px-4 flex justify-center">
-        <div className="bg-[#2D2C2A]/80 backdrop-blur-xl border border-[#3E3D3B]/50 h-16 rounded-full flex items-center justify-between w-full max-w-5xl px-6 shadow-2xl">
+      <header className="pt-4 sm:pt-8 px-4 flex justify-center">
+        <div className="bg-[#2D2C2A]/80 backdrop-blur-xl border border-[#3E3D3B]/50 h-auto sm:h-16 py-3 sm:py-0 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-center justify-between w-full max-w-5xl px-4 sm:px-6 shadow-2xl gap-3 sm:gap-0">
           
           <NavLink to="/" className="flex items-center gap-2">
             <div className="bg-[#D96B58] p-1.5 rounded-lg text-[#F0EFEA]">
@@ -33,7 +33,7 @@ export default function Layout() {
                 <NavLink
                   key={item.path}
                   to={item.path}
-                  className={`relative px-5 py-2 rounded-full text-[12px] font-medium flex gap-2 items-center transition-colors ${
+                  className={`relative px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12px] font-medium flex gap-1.5 sm:gap-2 items-center transition-colors ${
                     active ? "text-[#D96B58]" : "text-[#A09E99] hover:text-[#F0EFEA]"
                   }`}
                 >
@@ -50,14 +50,14 @@ export default function Layout() {
             })}
           </nav>
 
-          <div className="text-[#D96B58] text-[10px] flex gap-2 items-center font-bold tracking-wider">
+          <div className="text-[#D96B58] text-[10px] hidden sm:flex gap-2 items-center font-bold tracking-wider">
             <Activity size={12} className="animate-pulse" /> SYSTEM ACTIVE
           </div>
         </div>
       </header>
 
       {/* Page */}
-      <main className="flex-1 max-w-5xl mx-auto w-full px-6 pt-12 pb-12">
+      <main className="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 pt-6 sm:pt-12 pb-12">
         <Outlet />
       </main>
 

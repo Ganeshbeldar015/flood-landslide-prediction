@@ -17,13 +17,13 @@ export default function History() {
 
   return (
     <div className="w-full bg-[#2D2C2A] rounded-[2rem] shadow-xl
-                    border border-[#3E3D3B]/50 p-10 text-[#F0EFEA]">
+                    border border-[#3E3D3B]/50 p-6 sm:p-10 text-[#F0EFEA]">
 
       {/* Header */}
       <div className="text-center mb-12">
-        <div className="flex justify-center items-center gap-3 mb-3">
-          <HistoryIcon className="text-[#A3B18A]" size={26} />
-          <h2 className="text-4xl font-serif tracking-tight text-[#F0EFEA]">
+        <div className="flex justify-center items-center gap-2 sm:gap-3 mb-3">
+          <HistoryIcon className="text-[#A3B18A]" size={22} sm:size={26} />
+          <h2 className="text-3xl sm:text-4xl font-serif tracking-tight text-[#F0EFEA]">
             Prediction History
           </h2>
         </div>
